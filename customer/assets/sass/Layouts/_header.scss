@@ -1,23 +1,60 @@
 header {
+    background-image: url(/CapstoneJS25/customer/assets/img/banner.webp);
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 700px;
+
+    .navbar-collapse {
+        position: relative;
+    }
+
     .navbar-brand {
-        @include styleText ($color-blue-2, $fs-3, $fw-3);
+        font-size: 25px;
+        color: #fff;
     }
 
     .nav-link {
-        @include styleText ($color-blue-1, $fs-2, $fw-2);
-        &::after {
-            content: "";
-            width: 100%;
-            height: 2px;
-            background: $color-blue-2;
-            display: block;
-            transform: scale(0);
-        }
+        font-size: 18px;
+        color: #fff;
         &:hover {
-            color: $color-blue-2;
-            &::after {
-            transform: scale(1);
-            transition: all .2s;
+            transition: all 0.2s ease-in-out;
+            transform: scale(1.1);
+        }
+    }
+
+    .nav-link span {
+        display: block;
+    }
+
+    .cart {
+        position: absolute;
+        right: 0;
+    }
+
+    .header-content {
+        padding-top: 100px;
+    }
+
+    .header-left {
+        h3 {
+            font-size: 40px;
+            font-weight: 300;
+            color: #fff;
+        }
+        p {
+            color: #ccc;
+            font-size: 18px;
+            text-align: justify;
+        }
+    }
+    .header-right {
+        align-items: center;
+        img {
+            width: 100%;
+            border-radius: 10px;
+            transition: all ease-out 0.3s;
+            &:hover {
+                transform: scale(1.2);
             }
         }
     }

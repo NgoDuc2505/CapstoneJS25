@@ -1,6 +1,3 @@
-//Vendor (import file scss, riêng file css gắn ở html)
-
-
 //Helper
 @import "./Helper/variables";
 @import "./Helper/mixin";
@@ -15,7 +12,8 @@
 
 //layouts
 @import "./Layouts/header";
-@import "./Layouts/carousel";
+@import "./Layouts/product";
+@import "./Layouts/footer";
 
 //Pages
 

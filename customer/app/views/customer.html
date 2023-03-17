@@ -28,38 +28,177 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div class="container">
-            <nav class="navbar">
-                <a id="navbar-brand" href="">Diner</a>
-                <div class="header-right">
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search here.."
-                            aria-label="Search">
-                        <i class="fa fa-search search__icon"></i>
-                    </form>
-                    <button class="theme-btn" id="switchButton" title="Click to switch theme">
-                        <i class="far fa-moon"></i>
-                        <i class="far fa-sun"></i>
-                    </button>
-                    <button><i class="fa fa-bars"></i></button>
+            <nav class="header-navbar navbar navbar-expand-lg text-center">
+                <a class="navbar-brand" href="#h"><span><i class="fa-solid fa-robot"></i></span> Cyber Phone </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="navbar-nav mr-auto">
+                        <div class="nav-item active ml-auto p-2 bd-highlight">
+                            <a class="nav-link" href="#"><span><i class="fa-solid fa-house"></i></span> all</a>
+                        </div>
+                        <div class="nav-item ml-auto p-2 bd-highlight">
+                            <a class="nav-link" href="#"><span><i class="fa-solid fa-user-gear"></i></span> Admin
+                                Portal</a>
+                        </div>
+                        <div class="nav-item cart ml-auto p-2 bd-highlight">
+                            <a class="nav-link" href="#"><span> <i class="fa-solid fa-cart-shopping"></i></span>
+                                Cart</a>
+                        </div>
+                    </div>
                 </div>
             </nav>
+            <div class="row header-content">
+                <div class="col-5 header-left">
+                    <h3 class="title mb-4">GALAXY S23 SERIES</h3>
+                    <p class="mb-5 pr-lg-5">Get select Galaxy Buds2 or Buds Live on us with Galaxy S23 series, get up to
+                        $700 enhanced trade-in credit. For a limited time. Get hands on with the S23 and S23+.</p>
+                    <button type="button" class="header-btn btn-outline">Pre order now <span><i
+                                class="fa fa-chevron-right ml-2"></i></span></button>
+                </div>
 
-            <div class="header-content">
-                <h3 class="title mb-4">The only thing we love more than food is you!</h3>
-                <p class="mb-5 pr-lg-5">Lorem ipsum dolor sit amet consectetur ipsum elit. Qui eligendi vitae sit.Ea
-                    ipsum sed
-                    consequuntur
-                    illum facere.</p>
-                <button type="button" class="header-btn btn-outline-secondary">Read More <span><i
-                            class="fa fa-chevron-right ml-2"></i></span></button>
+                <div class="col-7 header-right">
+                    <img src="/CapstoneJS25/customer/assets/img/galaxy-s23.avif" alt="">
+                </div>
             </div>
         </div>
     </header>
-    <section class="phoneCarousel"></section>
-    <section class="product"></section>
-    <footer></footer>
+    <section class="product py-5">
+        <div class="container">
+            <div class="product__title text-center">
+                <h2>CHECK OUT OUR PRODUCTS</h2>
+            </div>
+            <div class="product__content">
+                <ul class="nav nav-pills mb-3  justify-content-center" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-all-tab" data-toggle="pill" data-target="#all"
+                            type="button" role="tab" aria-controls="pills-all" aria-selected="true">All
+                            Product</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-SamSung-tab" data-toggle="pill" data-target="#illu"
+                            type="button" role="tab" aria-controls="pills-SamSung"
+                            aria-selected="false">SamSung</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-Iphone-tab" data-toggle="pill" data-target="#photo"
+                            type="button" role="tab" aria-controls="pills-Iphone" aria-selected="false">Iphone</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="pills-all-tab">
+                        <div class="row">
+                            <div class="col-12 col-sm-6  col-lg-4 ">
+                                <div class="card">
+                                    <img src="/CapstoneJS25/customer/assets/img/samsung-galaxy-s22.png"
+                                        class="card-img-top" alt="...">
+                                    <div class="card_body">
+                                        <p class="product-title">Samsung Galaxy S22</p>
+                                        <p class="product-price">20.000.000</p>
+                                        <p class="product-id">SamSung</p>
+                                        <p class="product-desc">Description: <span></span></p>
+                                        <div class="d-flex justify-content-around product-status">
+                                            <div class="rating">
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                            </div>
+                                            <p class="product-stock">In stock</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-overlay">
+                                    <p class="overlay-title">Specifications <span></span></p>
+                                    <p class="product-screen">Screen: <span></span></p>
+                                    <p class="product-back">Back camera: <span></span></p>
+                                    <p class="product-front">Front camera: <span></span></p>
+                                    <p class="product-detail">click here for more details <span></span></p>
+                                    <button>add to card</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="illu" role="tabpanel" aria-labelledby="pills-SamSung-tab">
+                            Illustration</div>
+
+                        <div class="tab-pane fade" id="photo" role="tabpanel" aria-labelledby="pills-Iphone-tab">
+                            Photography</div>
+
+                        <div class="tab-pane fade" id="web" role="tabpanel" aria-labelledby="pills-contact-tab">Website
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+    </section>
+    <footer class="py-5">
+        <div class="container">
+            <div class="row footer_content">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <h4 class="footer_heading">Contact</h4>
+                    <ul>
+                        <li><a href="">Da Nang, Thanh Khe, VN</a></li>
+                        <li><a href="">Cyberphone@mail.com</a></li>
+                        <li><a href="">+ 01 234 567 88</a></li>
+                        <li><a href="">+ 01 234 567 89</a></li>
+                    </ul>
+                    <ul class="footer_social d-flex">
+                        <li><a href="#header"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#header"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="#header"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#header"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-4 footer-center">
+                    <h4 class="footer_heading">BRANDS</h4>
+                    <ul>
+                        <li><a href="#header">Iphone</a></li>
+                        <li><a href="#header">SamSung</a></li>
+                        <li><a href="#header">XiaoMi</a></li>
+                        <li><a href="#header">Oppo</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-4 footer-center">
+                    <h4 class="footer_heading">USEFUL LINKS</h4>
+                    <ul>
+                        <li><a href="#header">Pricing</a></li>
+                        <li><a href="#header">Settings</a></li>
+                        <li><a href="#header">Orders</a></li>
+                        <li><a href="#header">Help</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <h4 class="footer_heading">SUBSCRIBE TO OUR NEWSLETTER</h4>
+                    <p>Enter your email and receive the latest news, updates and special offers from us.</p>
+                    <input type="text" name="" id="" placeholder="Your Email Address">
+                    <button class="btn btn-style w-100 mt-3">Subscribe Now</button>
+                </div>
+            </div>
+
+            <div class="footer-bottom row">
+                <p class="col-lg-8 footer-bottom-left">© 2021 Diner. All rights reserved. Design by <span><a
+                            href="#header">CyberPhone</a></span></p>
+                <div class="col-lg-4 footer-bottom-left">
+                    <ul class="d-flex justify-content-around">
+                        <li><a href="#header">Careers</a></li>
+                        <li><a href="#header">Privacy Policy</a></li>
+                        <li><a href="#header">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- BS -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

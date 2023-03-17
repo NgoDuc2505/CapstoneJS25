@@ -1,11 +1,18 @@
-//Các code reset chung cho cả web
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     font-family: 'Nunito Sans', sans-serif;
-    @include styleText($color-dark-1, $fs-1, $fw-1);
+    scroll-behavior: smooth;
+}
+
+a:hover {
+    text-decoration: none;
+}
+li {
+    list-style: none;
 }
