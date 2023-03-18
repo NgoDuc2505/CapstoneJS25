@@ -1,0 +1,33 @@
+header{
+    background-color: $color-black;
+    position: relative;
+    .cartIcon{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+    }
+    .navbar-brand{
+        font-size: $fs-5;
+        color: $color-white;
+        &:hover{
+            color: $color-white;
+        }
+    }
+    .nav-link{
+        text-align: center;
+        color: $color-white;
+        font-size: $fs-2;
+        margin-left: $mg-2;
+        transition: all .5s ease;
+        &:hover{
+            color: $color-blue-2;
+        }
+        i{
+            display: block;
+        }
+    }
+    
+}
+
+

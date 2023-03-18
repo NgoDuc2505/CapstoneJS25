@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 18px;
+  background-color: #353536;
+  height: 100%;
+}
+
+header #btnTogglEr {
+  background-color: #2a73dd;
+}
+
+@media screen and (max-width: 993px) {
+  body header .navbar .navbar-nav {
+    flex-direction: row;
+    position: relative;
+  }
+  body header .navbar .navbar-nav .cartIcon {
+    position: absolute;
+    right: 0px;
+    top: 0;
+    transform: unset;
+    background-color: #6f86b0;
+    text-align: center;
+    padding: 0 13px;
+    border-radius: 5px;
+  }
+  body header .navbar .navbar-nav .cartIcon .nav-link {
+    margin: 0;
+  }
+  body header .navbar .navbar-nav .nav-link {
+    margin: 0 25px 0 0;
+  }
+  body header .navbar .navbar-nav .nav-link i {
+    display: inline;
+  }
+  body .body {
+    padding: 2px 2px;
+  }
+  body .body table th, body .body table td {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 577px) {
+  body .container {
+    padding: 0;
+  }
+  body .body {
+    padding: 5px;
+  }
+  body .body .tableProducts h3 {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  body .body .tableProducts .btnCustom {
+    transform: unset;
+  }
+  body .body .tableProducts table .describeEle {
+    word-wrap: break-word;
+  }
+  body .body .tableProducts table td .btn {
+    padding: 5px 5px;
+    margin: 2px;
+  }
+  .boxModel .modelContent {
+    height: 100%;
+  }
+  .boxModel .modelContent .modelHeader {
+    width: 100%;
+  }
+  .boxModel .modelContent #myModel {
+    width: 100%;
+  }
+}
+header i {
+  font-size: 1.8rem;
+  color: #c9d8f4;
+}
+
+.btnCustom {
+  width: 120px;
+  height: 40px;
+  border-radius: 50px;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 0px solid transparent;
+  background: linear-gradient(to right, #82CD47, #379237);
+  color: #fff;
+  background-repeat: no-repeat;
+  transition: all 0.5s ease;
+}
+.btnCustom:hover {
+  scale: 110%;
+}
+
+header {
+  background-color: #060508;
+  position: relative;
+}
+header .cartIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+header .navbar-brand {
+  font-size: 1.6rem;
+  color: #fff;
+}
+header .navbar-brand:hover {
+  color: #fff;
+}
+header .nav-link {
+  text-align: center;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-left: 25px;
+  transition: all 0.5s ease;
+}
+header .nav-link:hover {
+  color: #2a73dd;
+}
+header .nav-link i {
+  display: block;
+}
+
+.body {
+  background-color: #353536;
+  padding: 60px;
+  height: 100%;
+}
+.body #tableAdminHeader {
+  width: 100%;
+  overflow: hidden;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.body #tableAdminHeader tr {
+  background-color: #4b4b4b;
+  border-bottom: 1px solid #353536;
+}
+.body #tableAdminHeader tr th, .body #tableAdminHeader tr td {
+  padding: 8px;
+  width: 16%;
+  text-align: center;
+  display: inline-block;
+  color: #abd685;
+}
+.body #tableAdminBody {
+  width: 100%;
+  overflow: hidden;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+.body #tableAdminBody tr {
+  background-color: #948f8f;
+  border-bottom: 1px solid #353536;
+}
+.body #tableAdminBody tr th, .body #tableAdminBody tr td {
+  padding: 8px;
+  width: 16%;
+  text-align: center;
+  display: inline-block;
+  color: #121212;
+}
+.body .tableManager {
+  display: flex;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  justify-content: space-between;
+  padding: 5px 25px;
+  background-color: #060508;
+}
+.body .tableManager h3 {
+  color: #fff;
+  padding: 8px;
+}
+.body .tableManager button {
+  transform: translateY(30%);
+}
+
+body {
+  position: relative;
+}
+
+.boxModel {
+  animation: model 0.2s linear both;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(148, 143, 143, 0.6431372549);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.boxModel .modelContent {
+  z-index: 1;
+}
+.boxModel #myModel {
+  background-color: #2a73dd;
+  padding: 25px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  width: 500px;
+}
+.boxModel #myModel #myForm .form-group {
+  margin-bottom: 2px;
+}
+.boxModel #myModel #myForm .form-group label {
+  width: 40%;
+  font-size: 20px;
+  font-weight: 700;
+  color: #abd685;
+}
+.boxModel #myModel #myForm .form-group input {
+  width: 58%;
+}
+.boxModel #myModel #myForm .form-group span {
+  font-size: 14px;
+  color: #910000;
+  display: block;
+}
+.boxModel #myModel #myForm .areaGr {
+  width: 100%;
+}
+.boxModel #myModel #myForm .areaGr textarea {
+  width: 100%;
+  height: 150px;
+}
+.boxModel #myModel #myForm .selectGr label {
+  width: 100%;
+}
+.boxModel .modelHeader {
+  background-color: #1d365e;
+  width: 500px;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  color: #fff;
+  padding: 5px 8px 5px 25px;
+  display: flex;
+  justify-content: space-between;
+}
+.boxModel .boxLayer {
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.valid #myForm .form-group input,
+.valid #myForm .form-group textarea {
+  border: 2px solid #910000;
+}
+
+.hiden {
+  display: none;
+}
+
+@keyframes model {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}/*# sourceMappingURL=main.css.map */
