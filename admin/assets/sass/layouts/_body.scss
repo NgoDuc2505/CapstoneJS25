@@ -1,0 +1,26 @@
+.body{
+    background-color: $color-dark-3;
+    padding: $pd-7;
+    height: 100%;
+    #tableAdminHeader{
+        @include tableRow(0px, $color-dark-4,$color-green)
+    }
+    #tableAdminBody{
+        @include tableRow(0px, $color-grey,$color-dark-2)
+    }
+    .tableManager{
+        display: flex;
+        border-top-left-radius:5px ;
+        border-top-right-radius:5px ;
+        justify-content: space-between;
+        padding: $pd-9 $pd-1;
+        background-color: $color-black;
+        h3{
+            color: $color-white;
+            padding: $pd-6;
+        }
+        button{
+            transform: translateY(30%);
+        }
+    }
+}

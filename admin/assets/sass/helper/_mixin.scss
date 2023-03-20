@@ -1,0 +1,17 @@
+@mixin tableRow($boder-Ra,$color-tb,$color-tbFont){
+    width: 100%;
+    overflow: hidden;
+    border-top-left-radius: $boder-Ra;
+    border-top-right-radius: $boder-Ra;
+    tr{
+        background-color: $color-tb;
+        border-bottom: 1px solid $color-dark-3;
+        th,td{
+            padding: $pd-6;
+            width: 16%;
+            text-align: center;
+            display: inline-block; 
+            color: $color-tbFont;
+        }
+    }
+}
