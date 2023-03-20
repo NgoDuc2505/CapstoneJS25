@@ -21,7 +21,11 @@ header{
         margin-left: $mg-2;
         transition: all .5s ease;
         &:hover{
-            color: $color-blue-2;
+            color: $color-green-2;
+            scale: 1.1;
+            i{
+                color: $color-green-2;
+            }
         }
         i{
             display: block;

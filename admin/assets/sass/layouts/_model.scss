@@ -3,7 +3,7 @@ body{
 }
 .boxModel{
     animation: model .2s linear both;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background-color: $color-grey-2;
@@ -17,7 +17,7 @@ body{
         z-index: 1;
     }
     #myModel{
-        background-color: $color-blue-2;
+        background-color: $color-grey-3;
         padding: $pd-1;
         border-bottom-right-radius: 8px;
         border-bottom-left-radius: 8px;
@@ -52,6 +52,12 @@ body{
                     width: 100%;
                 }
             }
+        }
+        .modelFooter{
+            margin-top:$mg-2 ;
+            display: flex;
+            justify-content: flex-end;
+            gap: $mg-5;
         }
     }
     .modelHeader{

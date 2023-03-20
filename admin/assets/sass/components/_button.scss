@@ -7,10 +7,12 @@
     font-weight: $fw-2;
     border: 0px solid transparent;
     background: linear-gradient(to right, $color-green-3,$color-green-2);
+    background-size: 200%;
     color: $color-white;
     background-repeat: no-repeat;
     transition: all .5s ease;
     &:hover{
         scale: 110%;
+        background-position: 100% 0;
     }
 }
