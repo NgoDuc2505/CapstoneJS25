@@ -112,8 +112,9 @@ header .navbar-collapse {
   position: relative;
 }
 header .navbar-brand {
-  font-size: 25px;
   color: #fff;
+  font-size: 25px;
+  font-weight: 400;
 }
 header .collapse .navbar-nav {
   flex-direction: row;
@@ -122,11 +123,12 @@ header .collapse .navbar-nav .nav-item {
   margin-left: 0 !important;
 }
 header .nav-link {
-  font-size: 18px;
   color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  transition: all 0.2s ease-in-out;
 }
 header .nav-link:hover {
-  transition: all 0.2s ease-in-out;
   transform: scale(1.1);
 }
 header .nav-link span {
@@ -140,13 +142,14 @@ header .header-content {
   padding-top: 100px;
 }
 header .header-left h3 {
+  color: #fff;
   font-size: 40px;
   font-weight: 300;
-  color: #fff;
 }
 header .header-left p {
   color: #ccc;
   font-size: 18px;
+  font-weight: 400;
   text-align: justify;
 }
 header .header-right {
@@ -179,8 +182,9 @@ header .header-right img:hover {
   padding: 20px;
 }
 .product .card .card_body .product-title {
-  font-weight: 600;
+  color: #000;
   font-size: 20px;
+  font-weight: 600;
   text-align: center;
   margin-bottom: 5px;
 }
@@ -199,6 +203,31 @@ header .header-right img:hover {
   font-weight: 600;
   padding-top: 5px;
 }
+.product .card .card_body .nav-item .nav-link {
+  color: #000;
+}
+.product .card .card_body .nav-pills .nav-link.active {
+  background-color: #539165;
+  color: #fff;
+  border-color: #539165;
+}
+.product .card .card_body .product-status {
+  font-weight: 600;
+  text-align: end;
+  padding-right: 25px;
+  color: #539165;
+}
+.product .card .card_body .rating span {
+  color: #ffc107;
+}
+.product .card .card_body .product-detail {
+  display: inline;
+  cursor: pointer;
+  border-bottom: 2px solid rgba(255, 0, 0, 0.8);
+}
+.product .card .card_body .product-detail:hover {
+  color: #f2dede;
+}
 .product .card-overlay {
   position: absolute;
   top: 0;
@@ -211,32 +240,16 @@ header .header-right img:hover {
 }
 .product .card-overlay:hover {
   opacity: 1;
-  padding: 25px;
+  padding: 10px;
 }
 .product .card-overlay:hover .btnAddtoCart {
   bottom: 40px;
 }
 .product .card-overlay .overlay-title {
   text-align: center;
+  color: #fff;
   font-size: 30px;
   font-weight: 600;
-}
-.product .card-overlay .nav-item .nav-link {
-  color: #000;
-}
-.product .card-overlay .nav-pills .nav-link.active {
-  background-color: #4a9805;
-  color: #fff;
-  border-color: #4a9805;
-}
-.product .card-overlay .product-status {
-  font-weight: 600;
-  text-align: end;
-  padding-right: 25px;
-  color: #4a9805;
-}
-.product .card-overlay .rating span {
-  color: #ffc107;
 }
 
 footer {
@@ -262,7 +275,7 @@ footer .footer_social {
   font-size: 20px;
 }
 footer .footer_social i {
-  color: #abd685;
+  color: #539165;
 }
 footer .footer_social i:hover {
   color: #fff;
@@ -282,7 +295,7 @@ footer .btn:hover {
   color: #fff;
 }
 footer .footer-bottom span a {
-  color: #abd685;
+  color: #539165;
 }
 footer .footer-bottom-left {
   margin-bottom: 1rem;
@@ -293,7 +306,7 @@ footer .footer-bottom-left ul {
 
 .cartBox {
   transition: all 0.3s ease;
-  padding-bottom: 102px;
+  padding-bottom: 100px;
   position: fixed;
   overflow-y: scroll;
   top: 102px;
@@ -301,26 +314,26 @@ footer .footer-bottom-left ul {
   width: 40%;
   opacity: 1;
   height: 100%;
-  background-color: darkgray;
+  background-color: #948f8f;
   border-top-left-radius: 10px;
   box-shadow: 1px 1px 20px 3px rgba(0, 0, 0, 0.5);
   z-index: 3;
 }
 .cartBox .cart__header {
-  background-color: rgb(0, 63, 0);
+  background-color: #003f00;
   padding: 25px 0 3px 25px;
-  color: white;
+  color: #fff;
 }
 .cartBox .cart__header h2 {
   text-decoration: underline;
 }
 .cartBox .cart__header h2 i {
   margin-right: 10px;
-  color: #E7B10A;
+  color: #ffc107;
 }
 .cartBox .cart_body .cart__product {
   padding: 10px;
-  border-bottom: 1px black dashed;
+  border-bottom: 1px #000;
 }
 .cartBox .cart_body .cart__product .productInCart {
   display: flex;
@@ -335,11 +348,12 @@ footer .footer-bottom-left ul {
   padding: 5px 0 0 10px;
 }
 .cartBox .cart_body .cart__product .infoProduct .product-title {
+  color: #003f00;
   font-size: 25px;
   font-weight: 600;
-  color: #425F57;
 }
 .cartBox .cart_body .cart__product .infoProduct .product-price {
+  color: #000;
   font-size: 22px;
   font-weight: 900;
 }
@@ -366,12 +380,13 @@ footer .footer-bottom-left ul {
   height: 100px;
 }
 .cartBox .cart__payment h3 {
+  color: #003f00;
   font-size: 40px;
-  color: #1C6758;
+  font-weight: 600;
 }
 .cartBox .cart__footer {
   height: 70px;
-  background-color: #539165;
+  background-color: #003f00;
   padding: 10px;
 }
 .cartBox .cart__footer .btnCartGr {

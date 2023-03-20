@@ -9,8 +9,7 @@ header {
     }
 
     .navbar-brand {
-        font-size: 25px;
-        color: #fff;
+        @include styleText($white-1, 25px, 400);
     }
     .collapse{
         .navbar-nav{
@@ -21,10 +20,9 @@ header {
         }
     }
     .nav-link {
-        font-size: 18px;
-        color: #fff;
+        @include styleText($white-1, 18px, 400);
+        transition: all 0.2s ease-in-out;
         &:hover {
-            transition: all 0.2s ease-in-out;
             transform: scale(1.1);
         }
     }
@@ -44,13 +42,10 @@ header {
 
     .header-left {
         h3 {
-            font-size: 40px;
-            font-weight: 300;
-            color: #fff;
+            @include styleText($white-1, 40px, 300);
         }
         p {
-            color: #ccc;
-            font-size: 18px;
+            @include styleText($grey-1, 18px, 400);
             text-align: justify;
         }
     }

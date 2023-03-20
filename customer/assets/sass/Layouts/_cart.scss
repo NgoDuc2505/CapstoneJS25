@@ -1,6 +1,6 @@
 .cartBox{
     transition: all .3s ease;
-    padding-bottom: 102px;
+    padding-bottom: 100px;
     position: fixed;
     overflow-y: scroll;
     top: 102px;
@@ -8,26 +8,26 @@
     width: 40%;
     opacity: 1;
     height: 100%;
-    background-color: darkgray;
+    background-color: $grey-2;
     border-top-left-radius: 10px;
     box-shadow: 1px 1px 20px 3px rgb(0, 0, 0,0.5);
     z-index: 3;
     .cart__header{
-        background-color: rgb(0, 63, 0);
+        background-color: $green-2;
         padding: 25px 0 3px 25px;
-        color: white;
+        color: $white-1;
         h2{
             text-decoration: underline;
             i{
                 margin-right: 10px;
-                color: #E7B10A;
+                color: $yellow-1;
             }
         }
     }
     .cart_body{
         .cart__product{
             padding: 10px;
-            border-bottom: 1px black dashed;
+            border-bottom: 1px $black-1;
             .productInCart{
                 display: flex;
                 .imgProduct{
@@ -40,13 +40,10 @@
             .infoProduct{
                 padding: 5px 0 0 10px;
                 .product-title{
-                    font-size: 25px;
-                    font-weight: 600;
-                    color: #425F57;
+                    @include styleText($green-2, 25px, 600);
                 }
                 .product-price{
-                    font-size: 22px;
-                    font-weight: 900;
+                    @include styleText($black-1, 22px, 900);
                 }
                 .product-id{
                     font-size: 20px;
@@ -73,12 +70,12 @@
     .cart__payment{
         height: 100px;
         h3{
-            font-size: 40px;
-            color: #1C6758;        }
+            @include styleText($green-2, 40px, 600);
+        }
     }
     .cart__footer{
         height: 70px;
-        background-color: #539165;
+        background-color: $green-2;
         padding: 10px;
         .btnCartGr{
            display: flex;
