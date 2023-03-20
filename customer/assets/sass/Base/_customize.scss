@@ -1,0 +1,23 @@
+.product{
+    .nav-link.active{
+        background-color:green;
+    }
+}
+body{
+    .navbar{
+        position: fixed;
+        z-index: 2;
+        border-bottom-left-radius:6px ;
+        border-bottom-right-radius:6px ;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        .navbar-toggler{
+            background-color: #fff;
+            .navbar-toggler-icon{
+                i{
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+}

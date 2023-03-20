@@ -1,9 +1,10 @@
 .product {
     .card {
+        padding-top: 10px; ;
         position: relative;
         transition: all 0.3s;
-        &::after {
-        }
+       border-radius: 10px;
+       overflow: hidden;
         &:hover {
             transform: scale(1.05);
             box-shadow: 0 25px 98px 0 rgba(24, 24, 24, 0.2);
@@ -11,6 +12,33 @@
 
         img {
             width: 100%;
+        }
+        .card_body{
+            padding: 20px;
+            .product-title {
+                font-weight: 600;
+                font-size: 20px;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+        
+            .product-price {
+                text-align: center;
+            }
+        
+            .product-id {
+                margin-left: 25px;
+                display: inline;
+                padding: 0 5px;
+                border-radius: 6px;
+                background-color: #f2dede;
+            }
+        
+            .product-desc {
+                margin-left: 25px;
+                font-weight: 600;
+                padding-top: 5px;
+            }
         }
     }
 
@@ -25,13 +53,16 @@
         background-color: rgba(18, 15, 15, 0.6);
         &:hover {
             opacity: 1;
-        }
+            .btnAddtoCart{
+                bottom: 40px;
+            }
+        padding: $pd-1;
     }
 
     .overlay-title {
         text-align: center;
         font-size: 30px;
-        width: 600;
+        font-weight: 600;
     }
 
     .nav-item .nav-link {
@@ -45,32 +76,6 @@
             border-color: #4a9805;
         }
     }
-
-    .product-title {
-        font-weight: 600;
-        font-size: 20px;
-        text-align: center;
-        margin-bottom: 5px;
-    }
-
-    .product-price {
-        text-align: center;
-    }
-
-    .product-id {
-        margin-left: 25px;
-        display: inline;
-        padding: 0 5px;
-        border-radius: 6px;
-        background-color: #f2dede;
-    }
-
-    .product-desc {
-        margin-left: 25px;
-        font-weight: 600;
-        padding-top: 5px;
-    }
-
     .product-status {
         font-weight: 600;
         text-align: end;
@@ -81,4 +86,5 @@
     .rating span {
         color: #ffc107;
     }
+}
 }

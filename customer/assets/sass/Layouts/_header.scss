@@ -1,9 +1,9 @@
 header {
-    background-image: url(/CapstoneJS25/customer/assets/img/banner.webp);
+    background-image: url(/customer/assets/img/banner.webp);
     background-size: cover;
     background-attachment: fixed;
     min-height: 700px;
-
+    padding-top: 110px;
     .navbar-collapse {
         position: relative;
     }
@@ -12,7 +12,14 @@ header {
         font-size: 25px;
         color: #fff;
     }
-
+    .collapse{
+        .navbar-nav{
+            flex-direction: row;
+            .nav-item{
+                margin-left: 0!important;
+            }
+        }
+    }
     .nav-link {
         font-size: 18px;
         color: #fff;

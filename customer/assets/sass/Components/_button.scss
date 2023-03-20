@@ -1,10 +1,11 @@
-button {
+.btnStyle {
     padding: 20px 35px;
     font-size: 15px;
     font-weight: 500;
     background-image: linear-gradient(to right,#6d9a0c 0,#1a6d07 51%,#abd685 100%);
+    background-repeat: no-repeat;
     background-size: 200%;
-    border: 1px solid transparent;
+    border: 0px solid transparent;
     transition: all .5s;
     border-radius: 30px;
     color: #fff;
@@ -14,6 +15,13 @@ button {
 
     &:hover {
         background-position: right center;
-        transform: scale(1.05);
+        scale: 105%;
     }
+   
+}
+.btnAddtoCart{
+    position: absolute;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
 }
