@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../img/display-template-with-smartphones_79603-1239.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #719f9df2;
+    width: 100%;
+    height: 100%;
+}
+
+.content{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+    background-color: transparent;
+    width: 80%;
+    height: 500px;
+    display: flex;
+    gap: 40px;
+}
+
+.card{
+    border-radius: 7px;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: 1px 1px 20px 5px rgb(0, 0, 0,0.5);
+    transition: all .5s ease;
+    position: relative;
+}
+
+.card:hover{
+    scale: 1.1;
+    z-index: 3;
+}
+
+.admin{
+    background-color:#1b535c;
+}
+
+.admin:hover i{
+    animation: rotate 3s linear infinite both ;
+}
+.user{
+    background-color: #feba33;
+}
+.user:hover i{
+    animation: rotate2 3s linear infinite both;
+}
+
+.card a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 70px;
+    text-align: center;
+    color: lightgoldenrodyellow;
+    text-decoration: none;
+    padding: 30px;
+}
+.user a{
+    color: darkslategrey;
+}
+.card a i{
+    display: block;
+    margin-top: 150px;
+    transition: all .5s ease;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg);  }
+    100% { transform: rotate(360deg);  }
+}
+
+@keyframes rotate2 {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg);  }
+    50% { transform: rotate(0deg);  }
+    75% { transform: rotate(-5deg);  }
+    100% { transform: rotate(0deg);  }
+}
