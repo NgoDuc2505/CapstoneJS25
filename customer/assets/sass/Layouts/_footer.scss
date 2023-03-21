@@ -62,3 +62,22 @@ footer {
     }
 
 }
+
+// RESPONSIVE
+
+@media screen and (max-width: 992px) {
+    footer {
+        li {
+            padding-top: 8px;
+        }
+
+        .footer_heading {
+            font-size: 20px;
+        }
+
+        .footer_social {
+            gap: 20px;
+            font-size: 20px;
+        }
+    }
+}

@@ -1,10 +1,10 @@
 .product {
     .card {
-        padding-top: 10px;
         position: relative;
         transition: all 0.3s;
         border-radius: 10px;
         overflow: hidden;
+        margin-bottom: 20px;
         &:hover {
             transform: scale(1.05);
             box-shadow: 0 25px 98px 0 rgba(24, 24, 24, 0.2);
@@ -13,8 +13,10 @@
         img {
             width: 100%;
         }
+
         .card_body {
             padding: 20px;
+
             .product-title {
                 @include styleText($black-1, 20px, 600);
                 text-align: center;
@@ -38,10 +40,11 @@
                 font-weight: 600;
                 padding-top: 5px;
             }
+
             .nav-item .nav-link {
                 color: $black-1;
             }
-    
+
             .nav-pills {
                 .nav-link.active {
                     background-color: $green-1;
@@ -49,24 +52,26 @@
                     border-color: $green-1;
                 }
             }
+
             .product-status {
                 font-weight: 600;
                 text-align: end;
                 padding-right: 25px;
                 color: $green-1;
             }
-    
+
             .rating span {
                 color: #ffc107;
             }
-    
+
             .product-detail {
                 display: inline;
                 cursor: pointer;
-                    border-bottom: 2px solid rgba(255, 0, 0, 0.8);
-                    &:hover {
-                        color: $pink-1;
-                    }
+                border-bottom: 2px solid rgba(255, 0, 0, 0.8);
+
+                &:hover {
+                    color: $pink-1;
+                }
             }
         }
     }
@@ -80,17 +85,61 @@
         opacity: 0;
         color: $white-1;
         background-color: rgba(18, 15, 15, 0.6);
+
         &:hover {
             opacity: 1;
+
             .btnAddtoCart {
                 bottom: 40px;
             }
+
             padding: 10px;
         }
 
         .overlay-title {
             text-align: center;
             @include styleText($white-1, 30px, 600);
+        }
+    }
+}
+
+// RESPONSIVE
+
+@media screen and (max-width: 992px) {
+    .product {
+        .product__title h2 {
+            font-size: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product {
+        .product__title h2 {
+            font-size: 23px;
+        }
+
+        .nav-item {
+            padding: 0 10px;
+        }
+
+        .nav-link {
+            padding: 3px 3px;
+            font-size: 16px;
+        }
+
+        
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .product {
+        .col-12 {
+            display: flex;
+            justify-content: center;
+        }
+        .product-title {
+            @include styleText($black-1, 16px, 600);
         }
     }
 }
