@@ -79,125 +79,13 @@
                             <td>1</td>
                             <td>iphone 12</td>
                             <td>3000$</td>
-                            <td>photo12</td>
+                            <td class="imgData"><img src="" alt=""></td>
                             <td>this one is good</td>
                             <td>
-                                <button class="btn btn-info ">xem</button>
+                                <button class="btn btn-info " id="viewBtn">xem</button>
                                 <button class="btn btn-dark ">xoa</button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>iphone 12</td>
-                            <td>3000$</td>
-                            <td>photo12</td>
-                            <td>this one is good</td>
-                            <td>
-                                <button class="btn btn-info ">xem</button>
-                                <button class="btn btn-dark ">xoa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>iphone 12</td>
-                            <td>3000$</td>
-                            <td>photo12</td>
-                            <td>this one is good</td>
-                            <td>
-                                <button class="btn btn-info ">xem</button>
-                                <button class="btn btn-dark ">xoa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>iphone 12</td>
-                            <td>3000$</td>
-                            <td>photo12</td>
-                            <td>this one is good</td>
-                            <td>
-                                <button class="btn btn-info ">xem</button>
-                                <button class="btn btn-dark ">xoa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>iphone 12</td>
-                            <td>3000$</td>
-                            <td>photo12</td>
-                            <td>this one is good</td>
-                            <td>
-                                <button class="btn btn-info ">xem</button>
-                                <button class="btn btn-dark ">xoa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>iphone 12</td>
-                            <td>3000$</td>
-                            <td>photo12</td>
-                            <td>this one is good</td>
-                            <td>
-                                <button class="btn btn-info ">xem</button>
-                                <button class="btn btn-dark ">xoa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>iphone 12</td>
-                            <td>3000$</td>
-                            <td>photo12</td>
-                            <td>this one is good</td>
-                            <td>
-                                <button class="btn btn-info ">xem</button>
-                                <button class="btn btn-dark ">xoa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>iphone 12</td>
-                            <td>3000$</td>
-                            <td>photo12</td>
-                            <td>this one is good</td>
-                            <td>
-                                <button class="btn btn-info ">xem</button>
-                                <button class="btn btn-dark ">xoa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>iphone 12</td>
-                            <td>3000$</td>
-                            <td>photo12</td>
-                            <td>this one is good</td>
-                            <td>
-                                <button class="btn btn-info ">xem</button>
-                                <button class="btn btn-dark ">xoa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>iphone 12</td>
-                            <td>3000$</td>
-                            <td>photo12</td>
-                            <td>this one is good</td>
-                            <td>
-                                <button class="btn btn-info ">xem</button>
-                                <button class="btn btn-dark ">xoa</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>iphone 12</td>
-                            <td>3000$</td>
-                            <td>photo12</td>
-                            <td>this one is good</td>
-                            <td>
-                                <button class="btn btn-info ">xem</button>
-                                <button class="btn btn-dark ">xoa</button>
-                            </td>
-                        </tr>
-                        
-                        </td>
                     </table>
                 </div>
             </div>
@@ -258,7 +146,7 @@
                 </form>
                 <div class="modelFooter">
                     <button id="btnAddBox" class="btn btn-success">Add</button>
-                    <button class="btn btn-info hiden">Update</button>
+                    <div class="addEle"></div>
                 </div>
             </div>
         </div>
@@ -269,9 +157,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- axious -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="../services/popUpModel.js"></script>
-    <!-- <script src="../services/validation.js"></script> -->
+    <script src="../models/phone.js"></script>
+    <script src="../services/phoneServices.js"></script>
+    <script src="../controllers/main.js"></script>
 </body>
 
 </html>

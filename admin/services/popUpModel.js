@@ -22,4 +22,3 @@ function clickBlur(){
    close()
 }
 document.querySelector(".boxLayer").addEventListener('click',clickBlur)
-
