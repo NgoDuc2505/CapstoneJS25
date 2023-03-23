@@ -6,7 +6,6 @@ const productMethod = new ProductSer;
 function getProduct() {
     productMethod.geTProduct().
         then(function (result) {
-            console.log(result.data)
             viewInTable(result.data)
         })
         .catch(function (error) {
@@ -14,12 +13,13 @@ function getProduct() {
         })
 }
 getProduct()
-function clear(){
+function clear() {
     getMyEle("#myForm").reset();
     getMyEle(".modelHeader h2").innerHTML = "Add Product"
     getMyEle(".modelFooter .addEle").innerHTML = ""
     getMyEle("#btnAddBox").classList.remove('hiden')
-}getMyEle("#btnAdd").addEventListener('click',clear)
+    getClearSpan()
+} getMyEle("#btnAdd").addEventListener('click', clear)
 
 function inputProduct() {
     let name = getMyEle("#productName").value;
@@ -30,16 +30,19 @@ function inputProduct() {
     let img = getMyEle("#productImg").value;
     let desc = getMyEle("#decs").value;
     let type = getMyEle("#selectType").value;
-    let product = new Product(name, price, screen, backCamera, frontCamera, img, desc, type)
-
-    productMethod.addProduct(product)
-        .then(function (result) {
-            getProduct();
-            getMyEle("#closeBtn").click()
-        })
-        .catch(function (error) {
-            console.log(error)
-        })
+    let valid = validator(name, price, screen, backCamera, frontCamera, img, desc, type)
+   console.log(valid)
+    if (valid) {
+        let product = new Product(name, price, screen, backCamera, frontCamera, img, desc, type)
+        productMethod.addProduct(product)
+            .then(function (result) {
+                getProduct();
+                getMyEle("#closeBtn").click()
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }
 }
 getMyEle("#btnAddBox").addEventListener('click', inputProduct)
 
@@ -63,20 +66,21 @@ function viewInTable(arr) {
     getMyEle("#tableAdminBody").innerHTML = content;
 }
 
-function deletePhone(id){
+function deletePhone(id) {
     productMethod.deleteProduct(id)
-    .then(function (result) {
-        getProduct()
-        alert("Đã xóa thành công!")
-    })
-    .catch(function (error) {
-        console.log(error)
-    })
+        .then(function (result) {
+            getProduct()
+            alert("Đã xóa thành công!")
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
 }
 
 function viewDetail(id) {
     getMyEle("#myForm").reset();
-    open()
+    open();
+    getClearSpan();
     productMethod.viewProduct(id)
         .then(function (result) {
             console.log(result.data)
@@ -90,7 +94,7 @@ function viewDetail(id) {
         })
 }
 
-function showInModelbox(object){
+function showInModelbox(object) {
     getMyEle("#productName").value = object.name;
     getMyEle("#productPrice").value = object.price;
     getMyEle("#productScreen").value = object.screen;
@@ -101,7 +105,7 @@ function showInModelbox(object){
     getMyEle("#selectType").value = object.type;
 }
 
-function updateProduct(id){
+function updateProduct(id) {
     let name = getMyEle("#productName").value;
     let price = getMyEle("#productPrice").value;
     let screen = getMyEle("#productScreen").value;
@@ -110,14 +114,25 @@ function updateProduct(id){
     let img = getMyEle("#productImg").value;
     let desc = getMyEle("#decs").value;
     let type = getMyEle("#selectType").value;
-    let product = new Product(name, price, screen, backCamera, frontCamera, img, desc, type)
-    productMethod.updateProduct(id,product)
-    .then(function(result){
-        getProduct()
-        getMyEle("#closeBtn").click()
-    })
-    .catch(function(error){
-        console.log(error)
-    })
+    let updateValid = validator(name, price, screen, backCamera, frontCamera, img, desc, type)
+    console.log(updateValid)
+    if (updateValid) {
+        let product = new Product(name, price, screen, backCamera, frontCamera, img, desc, type)
+        productMethod.updateProduct(id, product)
+            .then(function (result) {
+                getProduct()
+                getMyEle("#closeBtn").click()
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }
 
+}
+
+function getClearSpan(){
+   let span = document.querySelectorAll("#myForm span")
+   for(let key of span){
+    key.innerHTML = ""
+   }
 }

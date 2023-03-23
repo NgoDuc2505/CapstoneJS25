@@ -1,38 +1,53 @@
-function validator(){
-    let productName = document.querySelector("#productName").value;
-    let productPrice = document.querySelector("#productPrice").value;
-    let productScreen = document.querySelector("#productScreen").value;
-    let productBackCamera = document.querySelector("#productBackCamera").value;
-    let productFrontCamera = document.querySelector("#productFrontCamera").value;
-    let productImg = document.querySelector("#productImg").value;
-    let decs = document.querySelector("#decs").value;
-    let selectType = document.querySelector("#selectType").value;
-    let product = new productObj(productName,productPrice,productScreen,productBackCamera,productFrontCamera,productImg,decs,selectType);
-    console.log(product)
-    console.log(Object.values(product))
+function CheckValue() {
+    this.checkEmpty = function (properties,span,blur) {
+        document.querySelector(blur).oninput=()=>{
+            document.querySelector(span).innerHTML = "";
+        }
+        if (properties) {
+            document.querySelector(span).innerHTML = "";
+            return true;
+        } else {
+            document.querySelector(span).innerHTML = "Vui lòng không để trống!";
+            return false;
+        }
+    }
+}const rule = new CheckValue();
+
+ function validator(name, price, screen, backCamera, frontCamera, img, desc, type) {
+  
+    let isValid = true;
+    isValid &= rule.checkEmpty(name,"#alertName","#productName");
+    isValid &= rule.checkEmpty(price,"#alertPrice","#productPrice");
+    isValid &= rule.checkEmpty(screen,"#alertScreen","#productScreen");
+    isValid &= rule.checkEmpty(backCamera,"#alertBackCamera","#productBackCamera");
+    isValid &= rule.checkEmpty(frontCamera,"#alertFrontCamera","#productFrontCamera");
+    isValid &= rule.checkEmpty(img,"#alertImg","#productImg");
+    isValid &= rule.checkEmpty(desc,"#alertDesc","#decs");
+    isValid &= rule.checkEmpty(type,"#alertType","#selectType");
+    console.log(isValid)
+    if (isValid) {
+        return true;
+    }else{
+        return false;
+    }
 }
-document.querySelector("#btnAddBox").addEventListener('click',validator)
-
-
-function productObj(productName,productPrice,productScreen,productBackCamera,productFrontCamera,productImg,decs,selectType){
-    this.productName =productName;
-    this.productPrice = productPrice;
-    this.productScreen = productScreen;
-    this.productBackCamera = productBackCamera;
-    this.productFrontCamera = productFrontCamera;
-    this.productImg =productImg;
-    this.decs = decs;
-    this.selectType = selectType;
+function spanEle(){
+    let spanOb = {}
+    let getSpan = document.querySelectorAll("#myForm span");
+    for(let key of getSpan){
+        spanOb[key.id] = key.innerHTML;
+    }
+    return spanOb;
 }
 
-
-
-function checkValue(){
-    this.checkEmpty = function(product){
-        for(var key of Object.values(product)){
-            if(key){
-                console.log(true)
-            }else{console.log(false)}
+function blurOut(){
+    let x = document.querySelectorAll("#myForm input");
+    for(let keyX of x){
+        keyX.onblur=()=>{
+            rule.checkEmpty(keyX.value,("#"+keyX.nextElementSibling.id),("#"+ keyX.id));
         }
     }
 }
+blurOut()
+
+
