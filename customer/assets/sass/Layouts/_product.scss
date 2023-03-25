@@ -8,6 +8,11 @@
         &:hover {
             transform: scale(1.05);
             box-shadow: 0 25px 98px 0 rgba(24, 24, 24, 0.2);
+            .card_body{
+                .addCart{
+                    display: block;
+                } 
+            }
         }
 
         img {
@@ -16,7 +21,10 @@
 
         .card_body {
             padding: 20px;
-
+            .addCart {
+                transition: all .5s ease;
+                display: none
+            }
             .product-title {
                 @include styleText($black-1, 20px, 600);
                 text-align: center;

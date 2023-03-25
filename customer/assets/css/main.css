@@ -241,11 +241,18 @@ header .header-right img:hover {
   transform: scale(1.05);
   box-shadow: 0 25px 98px 0 rgba(24, 24, 24, 0.2);
 }
+.product .card:hover .card_body .addCart {
+  display: block;
+}
 .product .card img {
   width: 100%;
 }
 .product .card .card_body {
   padding: 20px;
+}
+.product .card .card_body .addCart {
+  transition: all 0.5s ease;
+  display: none;
 }
 .product .card .card_body .product-title {
   color: #000;

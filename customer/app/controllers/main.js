@@ -34,7 +34,8 @@ function showProduct(arr, type = "") {
                                                 <span class="fa fa-star"></span>
                                             </div>
                                             <p class="product-stock">In stock</p>
-                                        </div>
+                                            </div>
+                                            <button class="addCart btn btn-info" onclick="getProductID(${product.id})">Add to cart</button>
                                     </div>
                                 </div>
         `
@@ -53,7 +54,7 @@ function filterProduct() {
         getProductList()
     })
 
-    samSungBtnEle.addEventListener("click",() => {
+    samSungBtnEle.addEventListener("click", () => {
         getProductList("Samsung")
     })
 
@@ -63,4 +64,105 @@ function filterProduct() {
 }
 
 filterProduct()
+
+function getProductID(id) {
+    productList.getProductContainID(id)
+        .then((result) => {
+            let getProductByID = result.data;
+            addToCart(getProductByID)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+}
+
+let cartItem = [];
+let duplicateProduct = [];
+function addToCart(product) {
+   console.log(isExit(product,cartItem))
+   if(!isExit(product,cartItem)){
+        product['num'] = 1;
+       cartItem.push(product)
+       setLocalStorage(cartItem)
+       showItemInCart(cartItem)
+   }else{
+    duplicateProduct.push(product);
+        let obb = {};
+        duplicateProduct.forEach((item)=>{
+            obb[item.id] = (obb[item.id] || 1) +1;
+        })
+        for(let key of Object.keys(obb))
+        if(product.id=== key){
+            product['num'] = obb[key];
+        }
+        let cartItemId = [];
+        for (let i = 0; i <cartItem.length; i++ ){
+            cartItemId.push(cartItem[i].id)
+        }
+        var indexTest = cartItemId.indexOf(product.id)
+        if(indexTest > -1){
+            cartItem[indexTest] = product
+        }
+        console.log(cartItem)
+        showItemInCart(cartItem)
+   }
+}
+
+function setLocalStorage(cartItem) {
+    localStorage.setItem('carTArray', JSON.stringify(cartItem))
+};
+function getLocalStorage() {
+    if (localStorage.getItem("carTArray") != null) {
+        cartItem = JSON.parse(localStorage.getItem("carTArray"));
+        showItemInCart(cartItem)
+    }
+} getLocalStorage()
+
+
+function showItemInCart(cartItem) {
+    let rs = cartItem.map((item) => {
+        return `
+        <div class="cart__product">
+        <div class="productInCart">
+            <div class="imgProduct">
+                <img src="${item.img}" alt="${item.name}">
+            </div>
+            <div class="infoProduct">
+                <p class="product-title">${item.name}</p>
+                <p class="product-price">${item.price}</p></p>
+                <p class="product-id">Brand: ${item.type}</p>
+            </div>
+        </div>
+        <div class="quantity">
+            <p>Quantity:</p>
+            <div class="numberOfItem">
+                <button onclick="plus">+</button>
+                <span class="numberProduct">${item.num}</span>
+                <button>-</button>
+            </div>
+        </div>
+        </div>
+        `
+    }).join('')
+    document.querySelector('.cart_body').innerHTML = rs;
+}
+
+
+function clearCart() {
+    cartItem = [];
+    setLocalStorage(cartItem)
+    getLocalStorage()
+} document.getElementById('clear').addEventListener('click', clearCart)
+
+function isExit(product,arr){
+    if(arr.length == 0){
+        return false
+    }
+    for(let i = 0; i <arr.length; i++){
+        if(product.id=== arr[i].id){
+            return true;
+        }
+    }
+    return false;
+}
 
