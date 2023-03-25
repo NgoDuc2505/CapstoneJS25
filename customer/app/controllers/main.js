@@ -19,13 +19,16 @@ function showProduct(arr, type = "") {
     newProductList.forEach(function (product) {
         content += `
         <div class="col-12 col-sm-6 col-lg-4 card">
+                        <div class="card-content animate__animated animate__zoomIn animate__faster">
                                     <img src="${product.img}" class="card-img-top" alt="${product.name}">
                                     <div class="card_body">
                                         <p class="product-title">${product.name}</p>
                                         <p class="product-price">${product.price}</p>
                                         <p class="product-id">${product.type}</p>
                                         <p class="product-desc">Description: <span>${product.desc}</span></p>
-                                        <div class="d-flex justify-content-around product-status">
+                                        
+                                    </div>
+                                    <div class="d-flex justify-content-around product-status">
                                             <div class="rating">
                                                 <span class="fa fa-star"></span>
                                                 <span class="fa fa-star"></span>
@@ -34,10 +37,18 @@ function showProduct(arr, type = "") {
                                                 <span class="fa fa-star"></span>
                                             </div>
                                             <p class="product-stock">In stock</p>
-                                            </div>
-                                            <button class="addCart btn btn-info" onclick="getProductID(${product.id})">Add to cart</button>
-                                    </div>
-                                </div>
+                                        </div>
+                                <div class="card-overlay">
+                                        <p class="overlay-title">Specifications <span></span></p>
+                                        <p class="product-screen">Screen: ${product.screen} <span></span></p>
+                                        <p class="product-back">Back camera: ${product.backCamera} <span></span></p>
+                                        <p class="product-front">Front camera: ${product.frontCamera} <span></span></p>
+                                        <p class="product-detail">Click here for more details <span></span></p>
+                                        <button class="btnAddtoCart btnStyle" onclick="getProductID(${product.id})">add to card</button>
+                            </div>
+                        </div>
+                        
+            </div>
         `
     })
     document.getElementById("allProduct").innerHTML = content;

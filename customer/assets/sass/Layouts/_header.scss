@@ -7,7 +7,9 @@ header {
     .navbar-collapse {
         position: relative;
     }
-
+    .navbar {
+        max-height: 65px;
+    }
     .navbar-brand {
         @include styleText($white-1, 25px, 400);
     }
@@ -131,5 +133,3 @@ header {
         }
     }
 }
-
-

@@ -111,6 +111,9 @@ header {
 header .navbar-collapse {
   position: relative;
 }
+header .navbar {
+  max-height: 65px;
+}
 header .navbar-brand {
   color: #fff;
   font-size: 25px;
@@ -230,29 +233,94 @@ header .header-right img:hover {
     font-size: 13px;
   }
 }
+.product button {
+  color: #000;
+  border: transparent;
+  transition: all 0.5s;
+  border-radius: 30px;
+  padding: 8px 10px;
+}
+.product button:hover {
+  background-position: right center;
+  scale: 105%;
+}
+.product .nav-link.active {
+  background-color: #35a22c;
+}
+.product .nav-item {
+  border: 0.5px solid #000;
+  border-radius: 8px;
+  margin-left: 5px;
+}
 .product .card {
-  position: relative;
   transition: all 0.3s;
-  border-radius: 10px;
+  position: relative;
+  border: transparent;
   overflow: hidden;
   margin-bottom: 20px;
 }
 .product .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 25px 98px 0 rgba(24, 24, 24, 0.2);
+  transform: scale(1.02);
 }
-.product .card:hover .card_body .addCart {
-  display: block;
+.product .card .card-content {
+  position: relative;
+  transition: all 0.3s;
+  border: 1px solid #539165;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 100%;
+}
+.product .card .card-content:hover {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.13);
+}
+.product .card .card-content .card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  color: #fff;
+  background-color: rgba(18, 15, 15, 0.6);
+}
+.product .card .card-content .card-overlay:hover {
+  opacity: 1;
+  cursor: pointer;
+  padding: 10px;
+}
+.product .card .card-content .card-overlay:hover .btnAddtoCart {
+  bottom: 40px;
+}
+.product .card .card-content .card-overlay .overlay-title {
+  margin-top: 5px;
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+}
+.product .card .card-content .card-overlay .product-detail {
+  display: inline;
+}
+.product .card .card-content .card-overlay .product-detail:hover {
+  color: greenyellow;
+  border-bottom: 1px solid greenyellow;
 }
 .product .card img {
   width: 100%;
+  padding: 20px 0;
+}
+.product .card .product-status {
+  font-weight: 600;
+  text-align: end;
+  padding-right: 25px;
+  color: #539165;
+  flex-direction: column;
+}
+.product .card .rating span {
+  color: #ffc107;
 }
 .product .card .card_body {
-  padding: 20px;
-}
-.product .card .card_body .addCart {
-  transition: all 0.5s ease;
-  display: none;
+  padding: 18px;
 }
 .product .card .card_body .product-title {
   color: #000;
@@ -276,22 +344,8 @@ header .header-right img:hover {
   font-weight: 600;
   padding-top: 5px;
 }
-.product .card .card_body .nav-item .nav-link {
-  color: #000;
-}
-.product .card .card_body .nav-pills .nav-link.active {
-  background-color: #539165;
-  color: #fff;
-  border-color: #539165;
-}
-.product .card .card_body .product-status {
-  font-weight: 600;
-  text-align: end;
-  padding-right: 25px;
-  color: #539165;
-}
-.product .card .card_body .rating span {
-  color: #ffc107;
+.product .card .card_body .nav-item {
+  border: 1px solid #000;
 }
 .product .card .card_body .product-detail {
   display: inline;
@@ -300,29 +354,6 @@ header .header-right img:hover {
 }
 .product .card .card_body .product-detail:hover {
   color: #f2dede;
-}
-.product .card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  color: #fff;
-  background-color: rgba(18, 15, 15, 0.6);
-}
-.product .card-overlay:hover {
-  opacity: 1;
-  padding: 10px;
-}
-.product .card-overlay:hover .btnAddtoCart {
-  bottom: 40px;
-}
-.product .card-overlay .overlay-title {
-  text-align: center;
-  color: #fff;
-  font-size: 30px;
-  font-weight: 600;
 }
 
 @media screen and (max-width: 992px) {
@@ -351,6 +382,10 @@ header .header-right img:hover {
     color: #000;
     font-size: 16px;
     font-weight: 600;
+  }
+  .product .nav-link {
+    padding: 3px 3px;
+    font-size: 13px;
   }
 }
 footer {
