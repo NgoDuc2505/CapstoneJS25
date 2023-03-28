@@ -167,6 +167,7 @@ function clearCart() {
     document.getElementById('showTotalCount').innerHTML = 0;
     document.querySelector("#total").innerHTML = 0;
 } document.getElementById('clear').addEventListener('click', clearCart)
+document.getElementById('pay').addEventListener('click', clearCart)
 
 function isExit(product, arr) {
     if (arr.length == 0) {
