@@ -57,6 +57,9 @@ body .navbar .navbar-toggler .navbar-toggler-icon i {
   .navWidth {
     min-width: 720px;
   }
+  header .navbar {
+    max-height: unset !important;
+  }
 }
 @media screen and (max-width: 767.8px) {
   .navWidth {
@@ -64,6 +67,9 @@ body .navbar .navbar-toggler .navbar-toggler-icon i {
   }
   body .cartBox {
     width: 60%;
+  }
+  body header .navbar {
+    max-height: unset !important;
   }
 }
 @media screen and (max-width: 576px) {
@@ -112,7 +118,8 @@ header .navbar-collapse {
   position: relative;
 }
 header .navbar {
-  max-height: 65px;
+  max-height: 95px;
+  padding-top: 30px;
 }
 header .navbar-brand {
   color: #fff;
@@ -140,6 +147,17 @@ header .nav-link span {
 header .cart {
   position: absolute;
   right: 0;
+}
+header .nav-item #showTotalCount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  background-color: red;
+  border-radius: 50px;
+  font-weight: 900;
 }
 header .header-content {
   padding-top: 100px;
@@ -526,11 +544,23 @@ footer .footer-bottom-left ul {
 }
 .cartBox .cart__payment {
   height: 100px;
+  border-top: 2px dashed black;
+  text-align: right;
 }
 .cartBox .cart__payment h3 {
   color: #003f00;
   font-size: 40px;
   font-weight: 600;
+}
+.cartBox .cart__payment .delivery {
+  margin-top: 5px;
+  font-size: 18px;
+  color: #115c68;
+  font-weight: 600;
+}
+.cartBox .cart__payment .delivery #deliveryPrice {
+  text-decoration: underline;
+  font-weight: 700;
 }
 .cartBox .cart__footer {
   height: 70px;
@@ -553,8 +583,9 @@ footer .footer-bottom-left ul {
 }
 
 .cartClose {
-  width: 0px;
+  width: 0 !important;
   opacity: 0;
+  z-index: -1;
 }
 
 .cartBlur {

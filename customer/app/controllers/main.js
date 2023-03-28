@@ -23,7 +23,7 @@ function showProduct(arr, type = "") {
                                     <img src="${product.img}" class="card-img-top" alt="${product.name}">
                                     <div class="card_body">
                                         <p class="product-title">${product.name}</p>
-                                        <p class="product-price">${product.price}</p>
+                                        <p class="product-price">${product.price}$</p>
                                         <p class="product-id">${product.type}</p>
                                         <p class="product-desc">Description: <span>${product.desc}</span></p>
                                         
@@ -90,33 +90,34 @@ function getProductID(id) {
 let cartItem = [];
 let duplicateProduct = [];
 function addToCart(product) {
-   console.log(isExit(product,cartItem))
-   if(!isExit(product,cartItem)){
+    if (!isExit(product, cartItem).is_exit) {
         product['num'] = 1;
-       cartItem.push(product)
-       setLocalStorage(cartItem)
-       showItemInCart(cartItem)
-   }else{
-    duplicateProduct.push(product);
-        let obb = {};
-        duplicateProduct.forEach((item)=>{
-            obb[item.id] = (obb[item.id] || 1) +1;
-        })
-        for(let key of Object.keys(obb))
-        if(product.id=== key){
-            product['num'] = obb[key];
-        }
-        let cartItemId = [];
-        for (let i = 0; i <cartItem.length; i++ ){
-            cartItemId.push(cartItem[i].id)
-        }
-        var indexTest = cartItemId.indexOf(product.id)
-        if(indexTest > -1){
-            cartItem[indexTest] = product
-        }
-        console.log(cartItem)
+        cartItem.push(product)
+        setLocalStorage(cartItem)
         showItemInCart(cartItem)
-   }
+        showTotalCount()
+    } else {
+        let getCurrentNum = isExit(product, cartItem).statusNum;
+        if (getCurrentNum >= 2) {
+            getCurrentNum += 1;
+            product['num'] = getCurrentNum;
+        } else {
+            duplicateProduct.push(product);
+            let obb = {};
+            duplicateProduct.forEach((item) => {
+                obb[item.id] = (obb[item.id] || 1) + 1;
+            })
+            for (let key of Object.keys(obb))
+                if (product.id === key) {
+                    product['num'] = obb[key];
+                }
+        }
+        let indexTest = getIndexOfId(product.id)
+        cartItem[indexTest] = product;
+        setLocalStorage(cartItem)
+        showItemInCart(cartItem)
+        showTotalCount()
+    }
 }
 
 function setLocalStorage(cartItem) {
@@ -140,16 +141,16 @@ function showItemInCart(cartItem) {
             </div>
             <div class="infoProduct">
                 <p class="product-title">${item.name}</p>
-                <p class="product-price">${item.price}</p></p>
+                <p class="product-price">${item.price}$</p></p>
                 <p class="product-id">Brand: ${item.type}</p>
             </div>
         </div>
         <div class="quantity">
             <p>Quantity:</p>
             <div class="numberOfItem">
-                <button onclick="plus">+</button>
+                <button onclick="quantity('${item.id}','${'plus'}')">+</button>
                 <span class="numberProduct">${item.num}</span>
-                <button>-</button>
+                <button onclick="quantity('${item.id}','${'minus'}')">-</button>
             </div>
         </div>
         </div>
@@ -163,17 +164,96 @@ function clearCart() {
     cartItem = [];
     setLocalStorage(cartItem)
     getLocalStorage()
+    document.getElementById('showTotalCount').innerHTML = 0;
+    document.querySelector("#total").innerHTML = 0;
 } document.getElementById('clear').addEventListener('click', clearCart)
 
-function isExit(product,arr){
-    if(arr.length == 0){
-        return false
+function isExit(product, arr) {
+    if (arr.length == 0) {
+        return {
+            statusNum: 1,
+            is_exit: false
+        };
     }
-    for(let i = 0; i <arr.length; i++){
-        if(product.id=== arr[i].id){
-            return true;
+    for (let i = 0; i < arr.length; i++) {
+        if (product.id === arr[i].id) {
+            product = arr[i];
+            return {
+                statusNum: arr[i].num,
+                is_exit: true
+            };
         }
     }
-    return false;
+    return {
+        statusNum: 1,
+        is_exit: false
+    };
 }
 
+function quantity(id, properties) {
+    let indexOfProduct = getIndexOfId(id);
+    switch (properties) {
+        case 'plus':
+            cartItem[indexOfProduct].num += 1;
+            setLocalStorage(cartItem)
+            showItemInCart(cartItem)
+            showTotalCount()
+            break;
+        case 'minus':
+            cartItem[indexOfProduct].num -= 1;
+            setLocalStorage(cartItem)
+            showItemInCart(cartItem)
+            showTotalCount()
+            whenCountUnder1(id)
+            break;
+        default:
+            break;
+    }
+}
+
+function whenCountUnder1(id) {
+    for (let key of cartItem) {
+        if (key.id == id) {
+            if (key.num < 1) {
+                let indexid = getIndexOfId(key.id);
+                cartItem.splice(indexid, 1)
+                setLocalStorage(cartItem)
+                showItemInCart(cartItem)
+                showTotalCount()
+            }
+        }
+    }
+}
+
+function getIndexOfId(id) {
+    let arrId = [];
+    for (let key of cartItem) {
+        arrId.push(key.id)
+    }
+    let indexOfId = arrId.indexOf(id);
+    if (indexOfId > -1) {
+        return indexOfId;
+    }
+}
+
+function showTotalCount() {
+    let countArr = [];
+    for (let key of cartItem) {
+        countArr.push(key.num)
+    }
+    let total = countArr.reduce(function (result, item) {
+        return result + item;
+    }, 0)
+    document.getElementById('showTotalCount').innerHTML = total;
+    solveTotal()
+}
+showTotalCount()
+
+function solveTotal() {
+    let totalPrice = 0;
+    for(let key of cartItem){
+        let {num,price} = key;
+        totalPrice += (num * Number(price))
+    }
+    document.getElementById("total").innerHTML = totalPrice.toLocaleString();
+}solveTotal()

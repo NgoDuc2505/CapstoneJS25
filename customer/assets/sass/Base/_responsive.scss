@@ -29,6 +29,11 @@
     .navWidth{
         min-width: 720px;
     }
+    header{
+        .navbar{
+           max-height: unset!important;
+        }
+    }
 }
 @media screen and (max-width: 767.8px){
     .navWidth{
@@ -37,6 +42,11 @@
     body{
         .cartBox{
             width: 60%;
+        }
+        header{
+            .navbar{
+               max-height: unset!important;
+            }
         }
     }
 }

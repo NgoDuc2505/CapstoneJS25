@@ -69,8 +69,20 @@
     }
     .cart__payment{
         height: 100px;
+        border-top: 2px dashed black;
+        text-align: right;
         h3{
             @include styleText($green-2, 40px, 600);
+        }
+        .delivery{
+            margin-top: 5px;
+            font-size: 18px;
+            color: #115c68;
+            font-weight: 600;
+            #deliveryPrice{
+                text-decoration: underline;
+                font-weight: 700;
+            }
         }
     }
     .cart__footer{
@@ -95,8 +107,9 @@
 }
 
 .cartClose{
-    width: 0px;
+    width: 0!important;
     opacity: 0;
+    z-index: -1;
 }
 .cartBlur{
     width: 100%;
