@@ -50,7 +50,7 @@
                 opacity: 0;
                 color: $white-1;
                 background-color: rgba(18, 15, 15, 0.6);
-        
+                transition: all 0.2s;
                 &:hover {
                     opacity: 1;
                     cursor: pointer;
