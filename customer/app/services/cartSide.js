@@ -10,3 +10,7 @@ function cartBlur(){
     document.querySelector(".cartBlur").classList.add("blurDisplay")
 }
 document.querySelector(".cartBlur").addEventListener('click',cartBlur)
+
+function closeCart(){
+    cartBlur()
+}document.querySelector('#closeCart').addEventListener('click',closeCart)

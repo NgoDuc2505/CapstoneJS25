@@ -23,6 +23,11 @@
                 color: $yellow-1;
             }
         }
+        #closeCart{
+            position: absolute;
+            right: 30px;
+            top: 30px;
+        }
     }
     .cart_body{
         .cart__product{

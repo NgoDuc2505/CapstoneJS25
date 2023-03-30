@@ -60,3 +60,45 @@
         }
     }
 }
+@media screen and (max-width: 410px){
+    body{
+        .cartBox{
+            .cart_body{
+                .cart__product{
+                    border-bottom: 1px black outset;
+                    .clearProductItem{
+                        position: unset;
+                    }
+                    .quantity{
+                        margin-left: 0;
+                    }
+                }
+            }
+            h2{
+                font-size: 1.4rem;
+            }
+            p{
+                font-size: 14px;
+            }
+            .cart__header{
+                #closeCart{
+                    top :10px;
+                    right: 10px;
+                }
+            }
+            .cart__footer{
+                button{
+                    font-size: 16px;
+                }
+            }
+            .cart__payment{
+                .delivery{
+                    font-size: 14px;
+                }
+                h3{
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+}
