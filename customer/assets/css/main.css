@@ -384,7 +384,7 @@ header .header-right img:hover {
   .product .product__title h2 {
     font-size: 23px;
   }
-  .product .nav-item {
+  .product .nav-link {
     padding: 0 10px;
   }
   .product .nav-link {
