@@ -96,6 +96,7 @@ function addToCart(product) {
         setLocalStorage(cartItem)
         showItemInCart(cartItem)
         showTotalCount()
+        isDelivery()
     } else {
         let getCurrentNum = isExit(product, cartItem).statusNum;
         if (getCurrentNum >= 2) {
@@ -117,6 +118,7 @@ function addToCart(product) {
         setLocalStorage(cartItem)
         showItemInCart(cartItem)
         showTotalCount()
+        isDelivery()
     }
 }
 
@@ -153,6 +155,9 @@ function showItemInCart(cartItem) {
                 <button onclick="quantity('${item.id}','${'minus'}')">-</button>
             </div>
         </div>
+        <div class="clearProductItem">
+        <button class="btn btn-warning" onclick="claerItemProduct('${item.id}')"><i class="fa-regular fa-trash-can"></i></button>
+    </div>
         </div>
         `
     }).join('')
@@ -166,8 +171,9 @@ function clearCart() {
     getLocalStorage()
     document.getElementById('showTotalCount').innerHTML = 0;
     document.querySelector("#total").innerHTML = 0;
+    isDelivery()
 } document.getElementById('clear').addEventListener('click', clearCart)
-document.getElementById('pay').addEventListener('click', clearCart)
+
 
 function isExit(product, arr) {
     if (arr.length == 0) {
@@ -221,6 +227,7 @@ function whenCountUnder1(id) {
                 setLocalStorage(cartItem)
                 showItemInCart(cartItem)
                 showTotalCount()
+                isDelivery()
             }
         }
     }
@@ -258,3 +265,36 @@ function solveTotal() {
     }
     document.getElementById("total").innerHTML = totalPrice.toLocaleString();
 }solveTotal()
+
+function claerItemProduct(id){
+    console.log(id)
+    let indexId = getIndexOfId(id);
+    cartItem.splice(indexId,1)
+    setLocalStorage(cartItem)
+    showItemInCart(cartItem)
+    showTotalCount()
+    isDelivery()
+}
+
+function isDelivery(){
+    let deliveryEle = document.querySelector('.delivery');
+    if(cartItem.length>0){
+        deliveryEle.style.display = 'block';
+    }else{
+        deliveryEle.style.display = 'none';
+    }
+}
+isDelivery()
+
+function successful(){
+    if(cartItem.length>0){
+        document.querySelector('.loader').style.display = "block"
+        clearCart();
+        setTimeout(function(){
+            document.querySelector('.loader').style.display = "none"
+        },1000)
+    }else{
+        alert("Can not do this section because your cart is empty!")
+    }
+}
+document.getElementById('pay').addEventListener('click', successful)
