@@ -3,3 +3,10 @@ header{
         background-color: $color-blue-2;
     }
 }
+.body{
+    #button-addon1{
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        z-index: unset;
+    }
+}

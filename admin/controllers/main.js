@@ -6,13 +6,15 @@ const productMethod = new ProductSer;
 function getProduct() {
     productMethod.geTProduct().
         then(function (result) {
-            viewInTable(result.data)
+        //    viewInTable(result.data)
+           sortByPrice(result.data)
         })
         .catch(function (error) {
             console.log(error)
         })
 }
 getProduct()
+
 function clear() {
     getMyEle("#myForm").reset();
     getMyEle(".modelHeader h2").innerHTML = "Add Product"
@@ -31,7 +33,7 @@ function inputProduct() {
     let desc = getMyEle("#decs").value;
     let type = getMyEle("#selectType").value;
     let valid = validator(name, price, screen, backCamera, frontCamera, img, desc, type)
-   console.log(valid)
+    console.log(valid)
     if (valid) {
         let product = new Product(name, price, screen, backCamera, frontCamera, img, desc, type)
         productMethod.addProduct(product)
@@ -130,9 +132,60 @@ function updateProduct(id) {
 
 }
 
-function getClearSpan(){
-   let span = document.querySelectorAll("#myForm span")
-   for(let key of span){
-    key.innerHTML = ""
-   }
+function getClearSpan() {
+    let span = document.querySelectorAll("#myForm span")
+    for (let key of span) {
+        key.innerHTML = ""
+    }
+}
+
+function sortByPrice(dataResult) {
+    let isAsc = isASC();
+    var newASCdata = dataResult.sort((a, b) => {
+        return parseFloat(b.price) - parseFloat(a.price)})
+    if (isAsc) {
+        var newASCdata = dataResult.sort((a, b) => {
+            return parseFloat(a.price) - parseFloat(b.price)})
+    }
+    viewInTable(newASCdata)
+}
+document.querySelector('.sortByPrice').onclick = getProduct;
+
+
+function isASC() {
+    let asc = document.querySelector('.fa-up-long');
+    let dasc = document.querySelector('.fa-down-long');
+    if (asc.classList.contains('d-none')) {
+        asc.classList.remove('d-none')
+        dasc.classList.add('d-none')
+        return false
+    } else {
+        asc.classList.add('d-none')
+        dasc.classList.remove('d-none')
+        return true
+    }
+}
+
+function findName(){
+    let inputSearch = (document.querySelector('.searchInput').value).trim().toLowerCase();
+    let nameArr = [];
+    productMethod.geTProduct().
+    then(function(result){
+        nameArr = findNameLogic(result.data,inputSearch)
+        viewInTable(nameArr)
+    })
+    .catch((error)=>{console.log(error)})
+}
+document.querySelector('.searchInput').addEventListener('input',findName)
+
+function findNameLogic(data,inputSearch){
+    let nameArr = [];
+    for(let key of data){
+        let nameKey = (key.name).toLowerCase()
+        if(nameKey.includes(inputSearch)){
+             console.log(nameKey)
+             nameArr.push(key)
+        }
+    }
+    return nameArr;
 }

@@ -28,8 +28,17 @@
             color: $color-white;
             padding: $pd-6;
         }
-        button{
+        #btnAdd{
             transform: translateY(30%);
+        }
+        .sortByPrice{
+            background-color: $color-blue-4;
+            width: 80px;
+            height: 40px;
+            border-radius: 5px;
+            h6{
+                margin: 0;
+            }
         }
     }
 }

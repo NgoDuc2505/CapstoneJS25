@@ -14,6 +14,12 @@ header #btnTogglEr {
   background-color: #2a73dd;
 }
 
+.body #button-addon1 {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: unset;
+}
+
 @media screen and (max-width: 993px) {
   body header .navbar .navbar-nav {
     flex-direction: row;
@@ -195,8 +201,17 @@ header .nav-link i {
   color: #fff;
   padding: 8px;
 }
-.body .tableManager button {
+.body .tableManager #btnAdd {
   transform: translateY(30%);
+}
+.body .tableManager .sortByPrice {
+  background-color: #2196f3;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+}
+.body .tableManager .sortByPrice h6 {
+  margin: 0;
 }
 
 body {
