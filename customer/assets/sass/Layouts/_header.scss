@@ -8,8 +8,8 @@ header {
         position: relative;
     }
     .navbar {
-        max-height: 95px;
-        padding-top: 30px;
+        max-height: 72px;
+        padding-top: 24px;
     }
     .navbar-brand {
         @include styleText($white-1, 25px, 400);
@@ -38,8 +38,8 @@ header {
         position: absolute;
         right: 0;
     }
-    .nav-item{
-        #showTotalCount{
+    .nav-item {
+        #showTotalCount {
             position: absolute;
             top: 0;
             right: 0;
