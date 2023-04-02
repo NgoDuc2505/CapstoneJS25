@@ -311,4 +311,7 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.boxModel #myModel #myForm .form-group span {
+  color: red;
 }/*# sourceMappingURL=main.css.map */
