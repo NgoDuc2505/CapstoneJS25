@@ -138,8 +138,9 @@ body .navbar .navbar-toggler .navbar-toggler-icon i {
 }
 
 header {
-  background-image: url(/customer/assets/img/banner.webp);
+  background-image: url("../../../../customer/assets/img/bannerNew.PNG");
   background-size: cover;
+  background-position: right;
   background-attachment: fixed;
   min-height: 700px;
   padding-top: 75px;
